@@ -22,6 +22,40 @@ A colorful and interactive implementation of Conway's Game of Life using SolidJS
   - Client efficiently processes the streamed updates
   - Easily adaptable to SSE for broader browser support
 
+## Implementation Approach
+
+Our implementation takes a different approach compared to full-page streaming solutions:
+
+### Granular Updates vs Full DOM Streaming
+
+- We send only changed cells rather than the entire DOM
+- Uses TypeScript discriminated unions for type-safe updates
+- Leverages SolidJS's fine-grained reactivity system
+- Performance optimized through incremental state updates
+
+### Key Differences from Full-Page Streaming:
+
+1. **Data Transfer**:
+   - Our approach: Sends minimal JSON updates for changed cells only
+   - Full-page streaming: Sends entire DOM chunks with morphing
+2. **State Management**:
+   - Our approach: Client maintains grid state, updates incrementally
+   - Full-page streaming: Server maintains all state, client just renders
+3. **Network Usage**:
+   - Our approach: Lower bandwidth due to minimal updates
+   - Full-page streaming: Relies on compression for efficiency
+4. **Client Complexity**:
+   - Our approach: More client-side logic but better state control
+   - Full-page streaming: Simpler client but more server dependency
+
+### Advantages of Our Approach:
+
+- More granular control over updates
+- Lower network bandwidth usage
+- Better offline capabilities potential
+- Independent client-side state management
+- Easier to implement additional client-side features
+
 ## Game Rules
 
 1. Any live cell with 2 or 3 live neighbors survives

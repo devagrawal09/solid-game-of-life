@@ -36,6 +36,7 @@ export default function App() {
         if (result.done) break;
 
         const update = result.value;
+        const start = performance.now();
         if (update.type === "full") {
           setGrid(reconcile(update.data));
         } else if (update.type === "changes") {
@@ -47,6 +48,8 @@ export default function App() {
             })
           );
         }
+        const end = performance.now();
+        console.log(`Time taken: ${end - start} milliseconds`);
       }
     } catch (error) {
       console.error("Error in game loop:", error);
