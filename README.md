@@ -16,6 +16,11 @@ A colorful and interactive implementation of Conway's Game of Life using SolidJS
 - **State Management**: Efficient updates using SolidJS stores and reconciliation
 - **Grid Size**: 50x50 cells with customizable visualization
 - **Performance**: Optimized with incremental updates instead of full grid transfers
+- **Communication**: Uses HTTP streaming for real-time updates (can be easily modified to use Server-Sent Events)
+  - No WebSocket dependency required
+  - Server streams updates using async generators
+  - Client efficiently processes the streamed updates
+  - Easily adaptable to SSE for broader browser support
 
 ## Game Rules
 
@@ -50,7 +55,26 @@ The project is built with:
 - SolidJS for UI components
 - TypeScript for type safety
 - Server-side game logic for consistent simulation
-- WebSocket-like communication for real-time updates
+- HTTP streaming for real-time updates (no WebSocket required)
+- Efficient state updates using incremental changes
+
+### Communication Flow
+
+1. Initial connection: Client requests game state via HTTP
+2. Server responds with:
+   - Initial full grid state
+   - Continuous stream of incremental updates
+3. Updates are sent only when cells change
+4. Client processes the stream and updates the UI efficiently
+
+### Alternative Implementation
+
+The code is structured to easily support Server-Sent Events (SSE) as an alternative to HTTP streaming:
+
+- Similar event-based architecture
+- Broader browser support
+- Built-in reconnection handling
+- No significant code changes required
 
 ## Project Structure
 
@@ -66,6 +90,7 @@ Feel free to open issues or submit pull requests for:
 - Bug fixes
 - Performance improvements
 - UI enhancements
+- Alternative communication implementations (e.g., SSE)
 
 ## License
 
