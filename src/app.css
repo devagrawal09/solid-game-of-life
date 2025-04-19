@@ -1,0 +1,93 @@
+body {
+  font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+a {
+  margin-right: 1rem;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #335d92;
+  text-transform: uppercase;
+  font-size: 4rem;
+  font-weight: 100;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  max-width: 14rem;
+}
+
+p {
+  max-width: 14rem;
+  margin: 2rem auto;
+  line-height: 1.35;
+}
+
+@media (min-width: 480px) {
+  h1 {
+    max-width: none;
+  }
+
+  p {
+    max-width: none;
+  }
+}
+
+.increment {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 1em 2em;
+  color: #335d92;
+  background-color: rgba(68, 107, 158, 0.1);
+  border-radius: 2em;
+  border: 2px solid rgba(68, 107, 158, 0);
+  outline: none;
+  width: 200px;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.increment:focus {
+  border: 2px solid #335d92;
+}
+
+.increment:active {
+  background-color: rgba(68, 107, 158, 0.2);
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.controls button {
+  margin: 0 10px;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.controls button:hover {
+  background-color: #e0e0e0;
+}
+
+.grid {
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+
+.cell {
+  transition: background-color 0.1s ease;
+}
+
+.cell:hover {
+  opacity: 0.8;
+}
